@@ -1,0 +1,69 @@
+@charset "UTF-8";
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("../images/img/background-image.jpg");
+}
+
+.wrapper {
+  position: absolute;
+  width: 1900px;
+  /*height: 950px;*/
+}
+
+.top {
+  position: absolute;
+  top: 0;
+  left: 2.5%;
+  height: 50px;
+  width: 95%;
+  border: 1px solid #f5f6f7;
+  text-align: center;
+  background-color: white;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.04);
+}
+
+.top h3 {
+  margin: 12px 0px;
+  padding: 0;
+  color: darkseagreen;
+  font-family: cursive;
+}
+
+.content {
+  width: 50%;
+  position: relative;
+  padding: 0 24px 16px;
+  top: 70px;
+  left: 25%;
+  background: #fff;
+}
+
+.header {
+  width: 100%;
+  height: 120px;
+  border-bottom: 1px solid #f5f6f7;
+  padding-top: 5px;
+  z-index: 9;
+  background-color: #fff;
+}
+
+.header .some-info {
+  color: #858585;
+  width: 88%;
+  line-height: 26px;
+}
+
+.header .some-info .nickname {
+  color: #2aabd2;
+  cursor: pointer;
+}
+
+.main {
+  margin-top: 5px;
+  width: 100%;
+  padding-top: 16px;
+  z-index: 9;
+  background-color: #fff;
+}

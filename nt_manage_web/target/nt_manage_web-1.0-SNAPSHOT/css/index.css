@@ -1,0 +1,246 @@
+@charset "UTF-8";
+
+body {
+  margin: 0;
+  padding: 0;
+
+}
+
+.wrapper {
+  width: 1900px;
+  height: 950px;
+}
+
+.header {
+  width: 100%;
+  height: 80px;
+  background-color: #5f8bb2;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #5f8bb2;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.04);
+}
+
+.header span {
+  color: white;
+  font-family: "Adobe 黑体 Std R";
+  font-size: 20px;
+  margin-left: 10px;
+  line-height: 80px;
+}
+
+.header a {
+  line-height: 80px;
+  color: white;
+  font-family: "Adobe 宋体 Std L";
+  font-size: 18px;
+  margin-right: 10px;
+  text-decoration: none;
+}
+
+.main {
+  width: 100%;
+  height: 870px;
+  position: absolute;
+  border-bottom: 1px solid #9e9e9e;
+}
+
+.main-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 15%;
+  height: 870px;
+  background-color: #88a9c8;
+  border-right: 1px solid #88a9c8;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.04);
+}
+
+.main-left a {
+  text-decoration: none;
+  color: white;
+}
+
+.main-left ol {
+  margin: 0;
+  padding-top: 50px;
+  padding-left: 0;
+  width: 100%;
+  height: 500px;
+  text-align: center;
+  color: gray;
+  font-size: 20px;
+}
+
+ol li {
+  height: 60px;
+  width: 100%;
+  line-height: 60px;
+}
+
+.user-management {
+  background-color: whitesmoke;
+}
+
+.user-management a {
+  color: #88a9c8;
+}
+
+.work-management {
+
+}
+
+.slider-management {
+
+}
+
+.main-right {
+  position: absolute;
+  width: 85%;
+  height: 870px;
+  top: 0;
+  right: 0;
+  background-color: whitesmoke;
+  border-left: 1px solid #5f9ea096;
+}
+
+.main-right .option {
+  width: 100%;
+  height: 70px;
+  border-bottom: 1px solid #9e9e9e;
+}
+
+.option span {
+  line-height: 70px;
+  font-size: x-large;
+  margin-left: 40px;
+  color: #88a9c8;
+}
+
+.main-right .content {
+  position: absolute;
+  width: 100%;
+  height: 800px;
+}
+
+.main-right .content .content-table {
+  position: absolute;
+  top: 60px;
+  left: 2.5%;
+  width: 95%;
+  height: 730px;
+  border: 1px solid #9e9e9e;
+  border-radius: 5px;
+}
+
+.content-table .top {
+  width: 100%;
+  height: 60px;
+  border-bottom: 1px solid #9e9e9e;
+}
+
+.top span {
+  position: absolute;
+  top: 22px;
+  left: 20px;
+  font-size: 16px;
+}
+
+.top input {
+  position: absolute;
+  top: 15px;
+  left: 66px;
+  width: 175px;
+}
+
+.top .search {
+  position: absolute;
+  top: 15px;
+  left: 250px;
+  cursor: pointer;
+}
+
+.top .delete {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.content-table .data {
+  width: 100%;
+  height: 580px;
+  overflow: scroll;
+}
+
+.data .title {
+  padding-top: 30px;
+  width: 100%;
+  border-bottom: 1px solid #9e9e9e;
+  font-family: "Adobe 黑体 Std R";
+  font-size: larger;
+  color: #88a9c8;
+}
+
+.data .user-data {
+  height: 50px;
+  width: 100%;
+  border-bottom: 1px solid #9e9e9e;
+  font-family: "Adobe 宋体 Std L";
+  color: gray;
+}
+
+.data-ul {
+  width: 100%;
+  height: 50px;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.data-ul li {
+  list-style: none;
+  float: left;
+  line-height: 50px;
+}
+
+.id {
+  width: 5%;
+}
+
+.nickname {
+  width: 15%;
+}
+
+.mobile {
+  width: 15%;
+}
+
+.sex {
+  width: 5%;
+}
+
+.brief {
+  width: 15%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.update-time {
+  width: 20%;
+}
+
+.create-time {
+  width: 20%;
+}
+
+.check {
+  width: 5%;
+}
+
+.footer {
+  position: absolute;
+  width: 100%;
+  height: 88px;
+}

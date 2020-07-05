@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>作品管理</title>
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/work.css" />
+  <link rel="stylesheet" href="angularjs/pagination.css" />
+</head>
+<body ng-app="nt" ng-controller="workController" ng-init="init()">
+<div class="wrapper">
+  <div class="header">
+    <span>粘土后台管理系统</span>
+    <a href="/logout">退出</a>
+  </div>
+  <div class="main">
+    <div class="main-left">
+      <ol>
+        <li class="user-management"><a href="index.html">用户管理</a></li>
+        <li class="work-management"><a href="work.html">作品与资讯管理</a></li>
+        <li class="slider-management"><a href="slideshow.html">轮播图管理</a></li>
+      </ol>
+    </div>
+    <div class="main-right">
+      <div class="option">
+        <span>作品管理</span>
+      </div>
+      <div class="content">
+        <div class="content-table">
+          <div class="top">
+<!--            <span>标题:</span>-->
+            <input ng-model="keyword" type="text" class="form-control" name="keyword" />
+            <button class="btn btn-primary search" ng-click="search()">查询</button>
+            <span>资讯管理</span>
+          </div>
+
+          <div class="work-data">
+            <div class="data">
+              <div class="notData" ng-if="workData == ''">
+                <span>暂无数据</span>
+              </div>
+              <div ng-mouseover="show()" class="work" ng-repeat="entity in workData">
+                <div class="left">
+                  <img title="{{entity.title}}" src="{{entity.coverUrl}}">
+                </div>
+                <div class="right">
+                  <div class="title">
+                    <h2>{{entity.title}}</h2>
+                  </div>
+                  <div class="brief">
+                    <span title="{{entity.brief}}">{{entity.brief}}</span>
+                  </div>
+                  <div class="work-bar">
+                    <div class="time">
+                      <span>创建于：{{entity.createTime}}</span>
+                      <span>作品id:&nbsp;{{entity.id}}</span>
+                    </div>
+                    <div class="icon">
+                      <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                      &nbsp;&nbsp;<span>{{entity.likeCount}}</span>&nbsp;&nbsp;
+                      <label>|</label>&nbsp;&nbsp;
+                      <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
+                      &nbsp;&nbsp;<span>{{entity.collectCount}}</span>
+                      <a target="_blank" href="http://localhost:9102/details.html?id={{entity.id}}">详情</a>&nbsp;
+                      <a ng-click="showOuter(entity.id)">删除</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="information">
+            <div style="border-bottom: 1px solid gainsboro">
+              <ul class="information-ul">
+                <li class="id">编号</li>
+                <li class="picture">图片</li>
+                <li class="link">链接</li>
+                <li class="update">操作</li>
+              </ul>
+            </div>
+
+            <div style="border-bottom: 1px solid gainsboro">
+              <ul class="data-ul">
+                <li class="id">{{information.id}}</li>
+                <li class="picture"><img src="{{information.picture}}"></li>
+                <li class="link" title="{{information.link}}">{{information.link}}</li>
+                <li class="update"><button class="btn btn-success" ng-click="showOuter2()">修改</button></li>
+              </ul>
+            </div>
+          </div>
+
+          <!--删除模态框start-->
+          <div class="outer" id="outer1">
+            <div tabindex="-1" class="model">
+              <div class="tip-message">
+                <span>确定删除你选择的作品吗？</span>
+              </div>
+              <div class="buttons">
+                <button id="confirm" class="btn btn-success">确定</button>
+                <button class="btn btn-success" ng-click="cancel()">取消</button>
+              </div>
+            </div>
+          </div>
+          <!--模态框end-->
+
+          <!--修改模态框start-->
+          <div class="outer" id="outer2">
+            <div tabindex="-1" class="model2">
+              <div>
+                <label>链接：</label>
+                <input type="text" class="form-control info-link" ng-model="information.link">
+                <img src="{{information.picture}}">
+                <span ng-click="updatePic()"><a>修改图片</a></span>
+                <input id="upload" type="file" style="display: none">
+              </div>
+              <div class="buttons">
+                <button id="confirm2" class="btn btn-success">保存</button>
+                <button class="btn btn-success" ng-click="cancel()">取消</button>
+              </div>
+            </div>
+          </div>
+          <!--模态框end-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="angularjs/angular.min.js"></script>
+<script src="js/base/baseNoPagination.js"></script>
+<script src="js/service/workService.js"></script>
+<script src="js/controller/workController.js"></script>
+</body>
+</html>

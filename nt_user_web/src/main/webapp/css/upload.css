@@ -1,0 +1,168 @@
+@charset "UTF-8";
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("../images/img/background-image.jpg");
+}
+
+.wrapper {
+  position: absolute;
+  width: 1900px;
+  height: 935px;
+}
+
+.top {
+  position: absolute;
+  top: 0;
+  left: 2.5%;
+  height: 50px;
+  width: 95%;
+  border: 1px solid #f5f6f7;
+  text-align: center;
+  background-color: white;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.04);
+}
+
+.top h3 {
+  margin: 12px 0px;
+  padding: 0;
+  color: darkseagreen;
+  font-family: cursive;
+}
+
+.work-info {
+  position: absolute;
+  top: 60px;
+  right: 25%;
+  width: 50%;
+  height: 985px;
+  background-color: white;
+  border: 1px solid gainsboro;
+  border-radius: 5px;
+}
+
+.work-info .title {
+  display: flex;
+  height: 50px;
+  width: 60%;
+  justify-content: center;
+  align-items: center;
+}
+
+.work-info .title span {
+  flex: 1.1;
+  font-size: 18px;
+  margin-left: 5px;
+}
+
+.work-info .title input {
+  flex: 9;
+}
+
+.work-info .title .button {
+  flex: 1.1;
+}
+
+.work-info .brief {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 60%;
+}
+
+.work-info .brief span {
+  flex: 1.1;
+  font-size: 18px;
+  margin-left: 5px;
+}
+
+.work-info .brief input {
+  flex: 9;
+}
+
+.work-info .select2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  width: 60%;
+}
+
+.work-info .select2 span {
+  flex: 1.1;
+  font-size: 18px;
+  margin-left: 5px;
+}
+
+.work-info .cover {
+  height: 145px;
+  width: 33%;
+  position: absolute;
+  top: 5px;
+  right: 7%;
+  padding-left: 7px;
+}
+
+.cover span {
+  position: absolute;
+  top: 45%;
+  left: 40%;
+  font-size: 14px;
+  color: #3399ea;
+  cursor: pointer;
+}
+
+.work-info .cover .cover-img {
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+}
+
+.work-info .button {
+  position: absolute;
+  height: 150px;
+  width: 7%;
+  top: 0;
+  right: 0;
+  text-align: center;
+}
+
+.work-info .button .issue {
+  height: 150px;
+}
+
+.content {
+  height: 885px;
+}
+
+.editor {
+  width: 100%;
+  height: 715px;
+}
+
+.flash-message {
+  position: absolute;
+  top: 20px;
+  left: 45%;
+  width: 150px;
+  height: 70px;
+  border-radius: 10px;
+  text-align: center;
+  /*background-color:rgba(255,255,255,0.7);*/
+  background-color: rgba(244, 67, 54, 0.63);
+  box-shadow: 0 25px 10px -15px rgba(0,0,0,.05);
+  padding: 15px 10px;
+}
+
+.flash-message span {
+  line-height: 10px;
+  color: white;
+}
+
+.back {
+  position: absolute;
+  top: 15px;
+  right: 25%;
+}

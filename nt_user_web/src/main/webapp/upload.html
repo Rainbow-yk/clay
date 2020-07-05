@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>上传作品</title>
+  <link rel="stylesheet" href="css/upload.css" >
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="select2/select2.css">
+  <link rel="stylesheet" href="select2/select2-bootstrap.css">
+</head>
+<body ng-app="nt" ng-controller="uploadController" ng-init="init()">
+  <div class="wrapper">
+    <div class="top">
+      <h3>粘土爱好者网站</h3>
+    </div>
+    <a class="back" style="text-decoration: none" href="index.html">回到主页&nbsp></a>
+    <div class="work-info">
+      <div class="title">
+        <span>标题：</span>
+        <input ng-model="entity.title" type="text" class="form-control" placeholder="请输入标题">
+      </div>
+      <div class="brief">
+        <span>描述：</span>
+        <input ng-model="entity.brief" type="text" class="form-control" placeholder="请输入描述">
+      </div>
+      <div class="select2">
+        <span>类型：</span>
+        <input style="flex: 9" select2 ng-model="ids" select2-model="cS2" config="config" multiple placeholder="支持多选哦" class="form-control" type="text"/>
+      </div>
+      <div class="cover">
+        <input id="upload" type="file" style="display: none"/>
+        <img class="cover-img" ng-src="{{entity.coverUrl}}">
+        <span ng-style="hidden" ng-click="upload()">添加封面图片</span>
+      </div>
+      <div class="button">
+        <button class="btn btn-success issue" ng-click="issue()">发布<br>作品</button>
+      </div>
+      <div class="content">
+        <!--富文本框 -->
+        <script class="editor" id="editor" type="text/plain"></script>
+      </div>
+    </div>
+    <!-- Flash Message -->
+    <div ng-style="message" style="display: none" class="flash-message">
+      <span>{{flashMessage}}</span>
+    </div>
+  </div>
+
+
+  <script type="text/javascript" charset="utf-8" src="ueditor/ueditor.config.js"></script>
+  <script type="text/javascript" charset="utf-8" src="ueditor/ueditor.all.min.js"> </script>
+  <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+  <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+  <script type="text/javascript" charset="utf-8" src="ueditor/lang/zh-cn/zh-cn.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="angularjs/angular.min.js"></script>
+  <script src="js/base/base.js"></script>
+  <script src="select2/angular-select2.js"></script>
+  <script src="select2/select2.min.js"></script>
+  <script src="js/service/uploadService.js"></script>
+  <script src="js/controller/uploadController.js"></script>
+</body>
+</html>

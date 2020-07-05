@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="description" content="注册界面">
+  <title>注册页面</title>
+  <link rel="stylesheet" href="css/jq22.css">
+</head>
+<body ng-app="nt" ng-controller="registerController">
+  <div class="text-center">
+    <!--    <h3>粘土爱好者网站</h3>-->
+    <a href="index.html"><img src="images/img/logo.png" style="margin-top: 40px;"/></a>
+  </div>
+<div id="login">
+  <div class="wrapper">
+    <div class="register" style="margin-top: 50px">
+      <!-- form start -->
+      <form id="registerForm" method="post" class="container offset1 loginform">
+        <div id="owl-login">
+          <div class="hand"></div>
+          <div class="hand hand-r"></div>
+          <div class="arms">
+            <div class="arm"></div>
+            <div class="arm arm-r"></div>
+          </div>
+        </div>
+        <div class="pad">
+          <div class="control-group">
+            <div class="controls">
+              <label for="nickname" class="control-label fa fa-user"></label>
+              <input ng-model="entity.nickname" maxlength="16" id="nickname" type="text" name="nickname" placeholder="昵称" tabindex="1"
+                     autofocus="autofocus" class="form-control input-medium">
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="controls">
+              <label for="phone" class="control-label fa fa-phone"></label>
+              <input ng-model="entity.mobile" maxlength="11" id="phone" type="text" name="mobile" placeholder="手机号" tabindex="1"
+                     autofocus="autofocus" class="form-control input-medium">
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="controls">
+              <label for="securityCode" class="control-label fa fa-envelope"></label>
+              <input ng-model="securityCode" maxlength="6" style="width: 70%;display: inline" id="securityCode" type="text"
+                     name="securityCode" placeholder="验证码" tabindex="1" autofocus="autofocus"
+                     class="form-control input-medium">
+              <button class="btn btn-primary" type="button" ng-style="notAllowed;" ng-click="sendSecurityCode()">
+                {{description}}
+              </button>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="controls">
+              <label for="password" class="control-label fa fa-asterisk"></label>
+              <input ng-model="entity.password" maxlength="16" id="password" type="password" name="password" placeholder="密码(3-16位字符)"
+                     tabindex="2" class="form-control input-medium">
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="controls">
+              <label for="confirmPassword" class="control-label fa fa-asterisk"></label>
+              <input ng-model="confirmPassword" maxlength="16" id="confirmPassword" type="password" name="confirmPassword" placeholder="确认密码"
+                     tabindex="2" class="form-control input-medium">
+            </div>
+          </div>
+        </div>
+        <div class="form-actions">
+          <font style="color: #d43f3a" class="btn btn-link pull-left text-muted">{{msg}}</font>
+          <a href="login.html" tabindex="5" class="btn btn-link text-muted">快速登录</a>
+          <button type="button" tabindex="4" class="btn btn-primary" ng-click="register()">注册</button>
+        </div>
+      </form>
+      <!-- form end -->
+    </div>
+  </div>
+  <script src="js/jquery.min.js"></script>
+  <script src="angularjs/angular.min.js"></script>
+  <script src="js/base/base.js"></script>
+  <script src="js/service/registerService.js"></script>
+  <script src="js/controller/registerController.js"></script>
+  <script>
+      $(function () {
+
+          $('#login #password').focus(function () {
+              $('#owl-login').addClass('password');
+          }).blur(function () {
+              $('#owl-login').removeClass('password');
+          });
+
+          $('#login #confirmPassword').focus(function () {
+              $('#owl-login').addClass('password');
+          }).blur(function () {
+              $('#owl-login').removeClass('password');
+          });
+      });
+  </script>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.nt.mapper.TbUserMapper">
+    <!--通过用户的id查询单个用户-->
+    <select id="findOne" parameterType="string" resultType="com.nt.pojo.TbUser">
+        SELECT * FROM tb_user WHERE mobile = #{mobile} AND is_delete = FALSE
+    </select>
+
+    <!--添加新用户-->
+    <insert id="addUser" parameterType="com.nt.pojo.TbUser">
+        INSERT INTO tb_user VALUES (null, #{nickname}, #{mobile}, #{password}, #{avatarUrl}, NULL, NULL, NOW(), NOW(), #{isDelete})
+    </insert>
+
+    <!--查询所有的用户-->
+    <select id="getAllUser" resultType="com.nt.pojo.TbUser">
+        SELECT * FROM tb_user WHERE is_delete = FALSE AND nickname LIKE '%${value}%'
+    </select>
+
+    <!--删除用户-->
+    <update id="delete">
+        UPDATE tb_user SET is_delete = TRUE, update_time = NOW() WHERE id = #{id}
+    </update>
+
+    <!--修改用户的头像-->
+    <update id="updateAvatar">
+        UPDATE tb_user SET avatar_url = #{0}, update_time = NOW() WHERE mobile = #{1}
+    </update>
+
+    <update id="update" parameterType="com.nt.pojo.TbUser">
+        UPDATE tb_user SET nickname = #{nickname}, mobile = #{mobile}, avatar_url = #{avatarUrl}, sex = #{sex}, brief = #{brief}, update_time = NOW() WHERE id = #{id}
+    </update>
+
+</mapper>

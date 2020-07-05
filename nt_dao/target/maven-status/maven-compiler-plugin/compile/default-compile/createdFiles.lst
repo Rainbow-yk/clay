@@ -1,0 +1,5 @@
+com\nt\mapper\TbUserMapper.class
+com\nt\mapper\TbCategoryMapper.class
+com\nt\mapper\TbWorkMapper.class
+com\nt\mapper\TbSlideshowMapper.class
+com\nt\mapper\TbInformationMapper.class

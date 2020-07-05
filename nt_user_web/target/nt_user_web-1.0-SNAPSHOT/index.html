@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="applicable-device" content="pc">
+<!--  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <title>网站首页</title>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/>
+  <script src="bootstrap/js/jquery-1.11.0.min.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <!--calendar-->
+  <link rel="stylesheet" type="text/css" href="calendar/stylesheets/simple-calendar.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+  <!--引入自己的样式-->
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body ng-app="nt" ng-controller="indexController" ng-init="init()">
+  <div class="container" style="width: 100%;">
+  <!--顶部-->
+  <div class="thumbnail text-center top">
+    <h3>粘土爱好者网站</h3>
+  </div>
+  <!--主体 start-->
+  <div class="main-body">
+    <!--head-->
+    <div class="thumbnail row header">
+      <!-- logo start -->
+      <div class="logo">
+        <img src="images/img/logo.png" />
+      </div>
+      <!-- logo end -->
+
+      <!-- 导航菜单 -->
+      <div class="menu">
+        <ul class="list-inline">
+          <li><a href="index.html" class="menu-li">首页</a></li>&nbsp;&nbsp;
+          <li><a href="https://shop275193046.taobao.com/index.htm?spm=2013.1.w5002-16555428384.2.4f053fad2I2WEj" target="_blank" class="menu-li">手办商城</a></li>
+          <li class="menu-li">
+            <div class="dropdown">
+              <a style="text-decoration: none;cursor: pointer" id="dLabel" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >更多资源</a>
+              <ul class="dropdown-menu" aria-labelledby="dLabel">
+                <li><a target="_blank" href="https://www.rouding.com/">肉丁网</a></li>
+                <li><a target="_blank" href="https://www.niantu.com/">粘土网</a></li>
+                <li><a target="_blank" href="https://www.shouyihuo.com/">手艺活网</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 搜索 -->
+      <div class="search">
+        <input ng-model="keyword" type="text" placeholder="搜索"/>
+        <img ng-click="search()" src="images/search.png" />
+      </div>
+
+      <!-- 按钮 -->
+      <div class="header-right">
+        <a ng-if="user.nickname == null" href="login.html" class="btn btn-info pull-right a-button">登录</a>
+        <a ng-if="user.nickname == null" href="register.html" class="btn btn-info pull-right a-button">注册</a>
+        <div ng-if="user.nickname != null" class="publish">
+          <a href="upload.html" target="_blank">发布作品</a>
+        </div>
+        <div ng-if="user.nickname != null" class="user-avatar">
+          <figure style="width: 55px;height: 55px;" class="center-block img-responsive">
+            <a target="_blank" href="profile.html"><img ng-mouseover="showOptions()" ng-mouseleave="hiddenOptions()" class="img-circle img-thumbnail my-img" src="{{user.avatarUrl}}" alt="头像"></a>
+          </figure>
+          <ul class="options" ng-mouseover="showOptions()" ng-mouseleave="hiddenOptions()">
+            <li ng-mouseover="pitchOn()"><a target="_blank" href="profile.html">个人中心</a></li>
+            <li ng-mouseover="pitchOn()"><a target="_blank" href="profile.html">我的作品</a></li>
+            <li ng-mouseover="pitchOn()"><a target="_blank" href="collect.html">我的收藏</a></li>
+            <li ng-mouseover="pitchOn()"><a target="_blank" href="upload.html">发布作品</a></li>
+<!--            <li ng-mouseover="pitchOn()"><a href="#">修改密码</a></li>-->
+            <li ng-mouseover="pitchOn()"><a href="/logout">退出</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--head end-->
+    <div class="main-right">
+      <!--日历-->
+      <div class="calendar-div">
+        <div id="calendar">
+        </div>
+      </div>
+      <!--文章-->
+      <div class="article">
+        <div class="title">
+          <h4>推荐文章</h4>
+        </div>
+        <div class="article-list">
+          <ul>
+            <li><a target="_blank" href="details.html?id=22">“愚”你同乐 | 小丑摆件教程</a></li>
+            <li><a target="_blank" href="details.html?id=20">超轻粘土制作君子兰的方法，简单易学好看</a></li>
+            <li><a target="_blank" href="details.html?id=13">波妞和宗介粘土浮雕画（简单易学）</a></li>
+            <li><a target="_blank" href="details.html?id=9">两只小蜜蜂</a></li>
+            <li><a target="_blank" href="details.html?id=19">绚烂的天空</a></li>
+            <li><a target="_blank" href="details.html?id=3">小鱼</a></li>
+            <li><a target="_blank" href="details.html?id=10">龙猫的小崽子</a></li>
+            <li><a target="_blank" href="details.html?id=15">超帅的旗木卡卡西</a></li>
+          </ul>
+        </div>
+        <div style="border-top: gainsboro solid" class="title">
+          <h4>微信公众号</h4>
+        </div>
+        <div class="gzh">
+          <img src="images/gzh_poster.png">
+        </div>
+      </div>
+    </div>
+
+
+    <!--轮播图与广告-->
+    <div ng-style="kill" class="row" style="width: 100%;height: 373px;margin: 0">
+      <!--轮播图-->
+      <div class="col-sm-12 col-md-8 col-lg-8 slideshow">
+        <div class="thumbnail" style="margin-bottom: 0">
+          <!--设置轮播器区域样式，设置轮播器滚动样式-->
+          <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="2000">
+            <!--设置轮播器列表区域样式，就是小圆点区域样式-->
+            <ol class="carousel-indicators">
+              <!--设置当前列表首选-->
+              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+              <li data-target="#myCarousel" data-slide-to="1"></li>
+              <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+            <!--设置轮播器图片区域-->
+            <div class="carousel-inner">
+              <!--设置轮播器图片样式-->
+              <div class="item active tp1">
+                <a href="{{slideshow[0].webLink}}" target="_blank" data-toggle="modal"><img title="{{slideshow[0].title}}" class="pic" src="{{slideshow[0].pictureUrl}}" alt="第一张"></a>
+              </div>
+              <div class="item tp2">
+                <a href="{{slideshow[1].webLink}}" target="_blank" data-toggle="modal"><img title="{{slideshow[1].title}}" class="pic" src="{{slideshow[1].pictureUrl}}" alt="第二张"></a>
+              </div>
+              <div class="item tp3">
+                <a href="{{slideshow[2].webLink}}" target="_blank" data-toggle="modal"><img title="{{slideshow[2].title}}" class="pic" src="{{slideshow[2].pictureUrl}}" alt="第三张"></a>
+              </div>
+            </div>
+
+            <!--设置轮播器箭头区域-->
+            <a href="#myCarousel" data-slide="prev" class="carousel-control left">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            </a>
+
+            <a href="#myCarousel" data-slide="next" class="carousel-control right">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- 广告 start-->
+      <div class="col-sm-12 col-md-4 col-lg-4 advertising">
+        <div class="thumbnail" style="margin: 0;width: 100%;height: 100%">
+          <a href="{{information.link}}" target="_blank" title="加油，武汉！">
+            <img style="width: 100%;height: 100%" src="{{information.picture}}">
+          </a>
+        </div>
+      </div>
+      <!-- 广告end -->
+    </div>
+    <!--轮播图与广告 end-->
+
+    <!--导航栏和作品显示1-->
+    <div id="show1" ng-style="kill" class="row" style="width: 100%;margin: 0">
+      <nav class="navbar navbar-default">
+        <!--最中间的选择栏-->
+        <div class="classify">
+          <ul class="nav nav-pills" role="tablist">
+            <li role="presentation" class="active" style="margin-left: 10px">
+              <a aria-controls="home" role="tab" href="#home1" data-toggle="tab">所有</a>
+            </li>
+            <li role="presentation">
+              <a ng-click="findWorkByCategoryId(1)" href="#home2" aria-controls="profile" role="tab" data-toggle="tab">粘土动物</a>
+            </li>
+            <li role="presentation">
+              <a ng-click="findWorkByCategoryId(2)" href="#home3" aria-controls="messages" role="tab" data-toggle="tab">粘土人物</a>
+            </li>
+            <li role="presentation">
+              <a ng-click="findWorkByCategoryId(3)" href="#home4" aria-controls="settings" role="tab" data-toggle="tab">粘土植物</a>
+            </li>
+            <li role="presentation">
+              <a ng-click="findWorkByCategoryId(4)" href="#home5" aria-controls="settings" role="tab" data-toggle="tab">粘土创意</a>
+            </li>
+            <li role="presentation">
+              <a ng-click="findWorkByCategoryId(5)" href="#home6" aria-controls="settings" role="tab" data-toggle="tab">其他手工</a>
+            </li>
+          </ul>
+          <div class="arrangement">
+            <button ng-click="vertical()" type="button" class="btn btn-default" aria-label="Left Align">
+              <span class="glyphicon glyphicon-object-align-vertical" aria-hidden="true"></span>
+            </button>
+            <button ng-click="horizontal()" type="button" class="btn btn-default" aria-label="Left Align">
+              <span class="glyphicon glyphicon-object-align-horizontal" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+        <!-- 作品竖向展示栏 -->
+        <div id="vertical" class="tab-content works-show">
+          <!-- Tab panes -->
+          <!--home1-->
+          <div style="margin: 0" role="tabpanel" class="tab-pane active row" id="home1">
+            <div class="col-sm-6 col-md-4 col-lg-3 work" ng-repeat="work in works">
+              <div class="thumbnail" style="height: 330px;margin-bottom: 10px">
+                <a target="_blank" href="details.html?id={{work.id}}" title="{{work.title}}">
+                  <img class="cover" src="{{work.coverUrl}}" class="lazy" width="300" height="200" alt="{{work.title}}">
+                </a>
+                <div class="caption my-caption">
+                  <h4 style="width: 198px;height: 50px;margin-bottom: 5px;margin-top: 5px">
+                    <a target="_blank" href="details.html?id={{work.id}}" title="{{work.title}}">{{work.title}}</a>
+                  </h4><br>
+                  <p style="width: 198px;height: 40px;margin-bottom: 0;">{{work.brief}}</p>
+                </div>
+                <div class="icon">
+                  <span ng-click="like(work, user)" class="glyphicon glyphicon-thumbs-up like{{work.id}}" aria-hidden="true"></span>
+                  &nbsp;&nbsp;<span>{{work.likeCount}}</span>&nbsp;&nbsp;
+                  <label>|</label>&nbsp;&nbsp;
+                  <span ng-click="collect(work, user)" class="glyphicon glyphicon-heart-empty collect{{work.id}}" aria-hidden="true"></span>
+                  &nbsp;&nbsp;<span>{{work.collectCount}}</span>
+                </div>
+                <div class="collect-message success{{work.id}}">
+                  <span>收藏成功</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--home2-->
+          <div style="margin: 0" role="tabpanel" class="tab-pane row" id="home2">
+            <div class="col-sm-6 col-md-4 col-lg-3 work" ng-repeat="work in categoryWorks">
+              <div class="thumbnail" style="height: 330px;margin-bottom: 10px">
+                <a target="_blank" href="details.html?id={{work.id}}" title="{{work.title}}">
+                  <img class="cover" src="{{work.coverUrl}}" class="lazy" width="300" height="200" alt="{{work.title}}">
+                </a>
+                <div class="caption my-caption">
+                  <h4 style="width: 198px;height: 50px;margin-bottom: 5px;margin-top: 5px">
+                    <a target="_blank" href="details.html?id={{work.id}}" title="{{work.title}}">{{work.title}}</a>
+                  </h4><br>
+                  <p style="width: 198px;height: 40px;margin-bottom: 0;">{{work.brief}}</p>
+                </div>
+                <div class="icon">
+                  <span ng-click="like(work, user)" class="glyphicon glyphicon-thumbs-up like{{work.id}}" aria-hidden="true"></span>
+                  &nbsp;&nbsp;<span>{{work.likeCount}}</span>&nbsp;&nbsp;
+                  <label>|</label>&nbsp;&nbsp;
+                  <span ng-click="collect(work, user)" class="glyphicon glyphicon-heart-empty collect{{work.id}}" aria-hidden="true"></span>
+                  &nbsp;&nbsp;<span>{{work.collectCount}}</span>
+                </div>
+                <div class="collect-message success{{work.id}}">
+                  <span>收藏成功</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--home3-->
+          <div style="margin: 0" role="tabpanel" class="tab-pane row" id="home3">
+            <div class="col-sm-6 col-md-4 col-lg-3 work" ng-repeat="work in categoryWorks">
+              <div class="thumbnail" style="height: 330px;margin-bottom: 10px">
+                <a target="_blank" href="details.html?id={{work.id}}" title="{{work.title}}">
+                  <img class="cover" src="{{work.coverUrl}}" class="lazy" width="300" height="200" alt="{{work.title}}">
+                </a>
+                <div class="caption my-caption">
+                  <h4 style="width: 198px;height: 50px;margin-bottom: 5px;margin-top: 5px">
+                    <a target="_blank" href="details.html?id={{work.id}}" title="{{work.title}}">{{work.title}}</a>
+                  </h4><br>
+                  <p style="width: 198px;height: 40px;margin-bottom: 0;">{{work.brief}}</p>
+                </div>
+                <div class="icon">
+                  <span ng-click="like(work, user)" class="glyphicon glyphicon-thumbs-up like{{work.id}}" aria-hidden="true"></span>
+                  &nbsp;&nbsp;<span>{{work.likeCount}}</span>&nbsp;&nbsp;
+                  <label>|</label>&nbsp;&nbsp;
+                  <span ng-click="collect(work, user)" class="glyphicon glyphicon-heart-empty collect{{work.id}}" aria-hidden="true"></span>
+                  &nbsp;&nbsp;<span>{{work.collectCount}}</span>
+                </div>
+                <div class="collect-message success{{work.id}}">
+                  <span>收藏成功</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--home4-->
+          <div style="margin: 0" role="tabpanel" class="tab-pane row" id="home4">
+            <div class="col-sm-6 col-md-4 col-lg-3 work" ng-repeat="work in categoryWorks">
+              <div class="thumbnail" style="height: 330px;margin-bottom: 10px">
+                <a target="_blank" href="details.html?id={{work.id}}" title="{{work.title}}">
+                  <img class="cover" src="{{work.coverUrl}}" class="lazy" width="300" height="200" alt="{{work.title}}">
+                </a>
+                <div class="caption my-caption">
+                  <h4 style="width: 198px;height: 50px;margin-bottom: 5px;margin-top: 5px">
+                    <a target="_blank" href="details.html?id={{work.id}}" title="{{work.title}}">{{work.title}}</a>
+                  </h4><br>
+                  <p style="width: 198px;height: 40px;margin-bottom: 0;">{{work.brief}}</p>
+                </div>
+                <div class="icon">
+                  <span ng-click="like(work, user)" class="glyphicon glyphicon-thumbs-up like{{work.id}}" aria-hidden="true"></span>
+                  &nbsp;&nbsp;<span>{{work.likeCount}}</span>&nbsp;&nbsp;
+                  <label>|</label>&nbsp;&nbsp;
+                  <span ng-click="collect(work, user)" class="glyphicon glyphicon-heart-empty collect{{work.id}}" aria-hidden="true"></span>
+                  &nbsp;&nbsp;<span>{{work.collectCount}}</span>
+                </div>
+                <div class="collect-message success{{work.id}}">
+                  <span>收藏成功</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--home5-->
+          <div style="margin: 0" role="tabpanel" class="tab-pane row" id="home5">
+            <div class="col-sm-6 col-md-4 col-lg-3 work" ng-repeat="work in categoryWorks">
+              <div class="thumbnail" style="height: 330px;margin-bottom: 10px">
+                <a target="_blank" href="details.html?id={{work.id}}" title="{{work.title}}">
+                  <img class="cover" src="{{work.coverUrl}}" class="lazy" width="300" height="200" alt="{{work.title}}">
+                </a>
+                <div class="caption my-caption">
+                  <h4 style="width: 198px;height: 50px;margin-bottom: 5px;margin-top: 5px">
+                    <a target="_blank" href="details.html?id={{work.id}}" title="{{work.title}}">{{work.title}}</a>
+                  </h4><br>
+                  <p style="width: 198px;height: 40px;margin-bottom: 0;">{{work.brief}}</p>
+                </div>
+                <div class="icon">
+                  <span ng-click="like(work, user)" class="glyphicon glyphicon-thumbs-up like{{work.id}}" aria-hidden="true"></span>
+                  &nbsp;&nbsp;<span>{{work.likeCount}}</span>&nbsp;&nbsp;
+                  <label>|</label>&nbsp;&nbsp;
+                  <span ng-click="collect(work, user)" class="glyphicon glyphicon-heart-empty collect{{work.id}}" aria-hidden="true"></span>
+                  &nbsp;&nbsp;<span>{{work.collectCount}}</span>
+                </div>
+                <div class="collect-message success{{work.id}}">
+                  <span>收藏成功</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--home6-->
+          <div style="margin: 0" role="tabpanel" class="tab-pane row" id="home6">
+            <div class="col-sm-6 col-md-4 col-lg-3 work" ng-repeat="work in categoryWorks">
+              <div class="thumbnail" style="height: 330px;margin-bottom: 10px">
+                <a target="_blank" href="details.html?id={{work.id}}" title="{{work.title}}">
+                  <img class="cover" src="{{work.coverUrl}}" class="lazy" width="300" height="200" alt="{{work.title}}">
+                </a>
+                <div class="caption my-caption">
+                  <h4 style="width: 198px;height: 50px;margin-bottom: 5px;margin-top: 5px">
+                    <a target="_blank" href="details.html?id={{work.id}}" title="{{work.title}}">{{work.title}}</a>
+                  </h4><br>
+                  <p style="width: 198px;height: 40px;margin-bottom: 0;">{{work.brief}}</p>
+                </div>
+                <div class="icon">
+                  <span ng-click="like(work, user)" class="glyphicon glyphicon-thumbs-up like{{work.id}}" aria-hidden="true"></span>
+                  &nbsp;&nbsp;<span>{{work.likeCount}}</span>&nbsp;&nbsp;
+                  <label>|</label>&nbsp;&nbsp;
+                  <span ng-click="collect(work, user)" class="glyphicon glyphicon-heart-empty collect{{work.id}}" aria-hidden="true"></span>
+                  &nbsp;&nbsp;<span>{{work.collectCount}}</span>
+                </div>
+                <div class="collect-message success{{work.id}}">
+                  <span>收藏成功</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!--导航栏和作品显示2-->
+    <div id="show2" ng-style="kill" class="row" style="width: 100%;margin: 0;display: none">
+      <nav class="navbar navbar-default">
+        <!--最中间的选择栏-->
+        <div class="classify">
+          <ul class="nav nav-pills" role="tablist">
+            <li role="presentation" class="active" style="margin-left: 10px">
+              <a aria-controls="home" role="tab" href="#home11" data-toggle="tab">所有</a>
+            </li>
+            <li role="presentation">
+              <a ng-click="findWorkByCategoryId(1)" href="#home12" aria-controls="profile" role="tab" data-toggle="tab">粘土动物</a>
+            </li>
+            <li role="presentation">
+              <a ng-click="findWorkByCategoryId(2)" href="#home13" aria-controls="messages" role="tab" data-toggle="tab">粘土人物</a>
+            </li>
+            <li role="presentation">
+              <a ng-click="findWorkByCategoryId(3)" href="#home14" aria-controls="settings" role="tab" data-toggle="tab">粘土植物</a>
+            </li>
+            <li role="presentation">
+              <a ng-click="findWorkByCategoryId(4)" href="#home15" aria-controls="settings" role="tab" data-toggle="tab">粘土创意</a>
+            </li>
+            <li role="presentation">
+              <a ng-click="findWorkByCategoryId(5)" href="#home16" aria-controls="settings" role="tab" data-toggle="tab">其他手工</a>
+            </li>
+          </ul>
+          <div class="arrangement">
+            <button ng-click="vertical()" type="button" class="btn btn-default" aria-label="Left Align">
+              <span class="glyphicon glyphicon-object-align-vertical" aria-hidden="true"></span>
+            </button>
+            <button ng-click="horizontal()" type="button" class="btn btn-default" aria-label="Left Align">
+              <span class="glyphicon glyphicon-object-align-horizontal" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+        <!--作品横向展示-->
+        <div id="horizontal" style="display: none" class="tab-content works-show search-data">
+          <!-- Tab panes -->
+          <!--home1-->
+          <div style="margin: 0" role="tabpanel" class="tab-pane active row" id="home11">
+            <div class="data">
+              <div ng-mouseover="show()" class="work" ng-repeat="work in works">
+                <div class="left">
+                  <a href="details.html?id={{work.id}}" target="_blank"><img title="{{work.title}}" src="{{work.coverUrl}}"></a>
+                </div>
+                <div class="right">
+                  <div class="title">
+                    <a style="font-size: 18px;" href="details.html?id={{work.id}}" target="_blank">{{work.title}}</a>
+                  </div>
+                  <div class="brief">
+                    <span title="{{work.brief}}">{{work.brief}}</span>
+                  </div>
+                  <div class="user-bar">
+                    <div class="time">
+                      <span>创建于：{{work.createTime}}</span>
+                    </div>
+                    <div>
+                      <span ng-click="like(work, user)" class="glyphicon glyphicon-thumbs-up like{{work.id}}" aria-hidden="true"></span>
+                      &nbsp;&nbsp;<span>{{work.likeCount}}</span>&nbsp;&nbsp;
+                      <label>|</label>&nbsp;&nbsp;
+                      <span ng-click="collect(work, user)" class="glyphicon glyphicon-heart-empty collect{{work.id}}" aria-hidden="true"></span>
+                      &nbsp;&nbsp;<span>{{work.collectCount}}</span>
+                    </div>
+                    <div class="collect-message2 success{{work.id}}">
+                      <span>收藏成功</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--home2-->
+          <div style="margin: 0" role="tabpanel" class="tab-pane row" id="home12">
+            <div class="data">
+              <div ng-mouseover="show()" class="work" ng-repeat="work in categoryWorks">
+                <div class="left">
+                  <a href="details.html?id={{work.id}}" target="_blank"><img title="{{work.title}}" src="{{work.coverUrl}}"></a>
+                </div>
+                <div class="right">
+                  <div class="title">
+                    <a style="font-size: 18px;" href="details.html?id={{work.id}}" target="_blank">{{work.title}}</a>
+                  </div>
+                  <div class="brief">
+                    <span title="{{work.brief}}">{{work.brief}}</span>
+                  </div>
+                  <div class="user-bar">
+                    <div class="time">
+                      <span>创建于：{{work.createTime}}</span>
+                    </div>
+                    <div>
+                      <span ng-click="like(work, user)" class="glyphicon glyphicon-thumbs-up like{{work.id}}" aria-hidden="true"></span>
+                      &nbsp;&nbsp;<span>{{work.likeCount}}</span>&nbsp;&nbsp;
+                      <label>|</label>&nbsp;&nbsp;
+                      <span ng-click="collect(work, user)" class="glyphicon glyphicon-heart-empty collect{{work.id}}" aria-hidden="true"></span>
+                      &nbsp;&nbsp;<span>{{work.collectCount}}</span>
+                    </div>
+                    <div class="collect-message2 success{{work.id}}">
+                      <span>收藏成功</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--home3-->
+          <div style="margin: 0" role="tabpanel" class="tab-pane row" id="home13">
+            <div class="data">
+              <div ng-mouseover="show()" class="work" ng-repeat="work in categoryWorks">
+                <div class="left">
+                  <a href="details.html?id={{work.id}}" target="_blank"><img title="{{work.title}}" src="{{work.coverUrl}}"></a>
+                </div>
+                <div class="right">
+                  <div class="title">
+                    <a style="font-size: 18px;" href="details.html?id={{work.id}}" target="_blank">{{work.title}}</a>
+                  </div>
+                  <div class="brief">
+                    <span title="{{work.brief}}">{{work.brief}}</span>
+                  </div>
+                  <div class="user-bar">
+                    <div class="time">
+                      <span>创建于：{{work.createTime}}</span>
+                    </div>
+                    <div>
+                      <span ng-click="like(work, user)" class="glyphicon glyphicon-thumbs-up like{{work.id}}" aria-hidden="true"></span>
+                      &nbsp;&nbsp;<span>{{work.likeCount}}</span>&nbsp;&nbsp;
+                      <label>|</label>&nbsp;&nbsp;
+                      <span ng-click="collect(work, user)" class="glyphicon glyphicon-heart-empty collect{{work.id}}" aria-hidden="true"></span>
+                      &nbsp;&nbsp;<span>{{work.collectCount}}</span>
+                    </div>
+                    <div class="collect-message2 success{{work.id}}">
+                      <span>收藏成功</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--home4-->
+          <div style="margin: 0" role="tabpanel" class="tab-pane row" id="home14">
+            <div class="data">
+              <div ng-mouseover="show()" class="work" ng-repeat="work in categoryWorks">
+                <div class="left">
+                  <a href="details.html?id={{work.id}}" target="_blank"><img title="{{work.title}}" src="{{work.coverUrl}}"></a>
+                </div>
+                <div class="right">
+                  <div class="title">
+                    <a style="font-size: 18px;" href="details.html?id={{work.id}}" target="_blank">{{work.title}}</a>
+                  </div>
+                  <div class="brief">
+                    <span title="{{work.brief}}">{{work.brief}}</span>
+                  </div>
+                  <div class="user-bar">
+                    <div class="time">
+                      <span>创建于：{{work.createTime}}</span>
+                    </div>
+                    <div>
+                      <span ng-click="like(work, user)" class="glyphicon glyphicon-thumbs-up like{{work.id}}" aria-hidden="true"></span>
+                      &nbsp;&nbsp;<span>{{work.likeCount}}</span>&nbsp;&nbsp;
+                      <label>|</label>&nbsp;&nbsp;
+                      <span ng-click="collect(work, user)" class="glyphicon glyphicon-heart-empty collect{{work.id}}" aria-hidden="true"></span>
+                      &nbsp;&nbsp;<span>{{work.collectCount}}</span>
+                    </div>
+                    <div class="collect-message2 success{{work.id}}">
+                      <span>收藏成功</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--home5-->
+          <div style="margin: 0" role="tabpanel" class="tab-pane row" id="home15">
+            <div class="data">
+              <div ng-mouseover="show()" class="work" ng-repeat="work in categoryWorks">
+                <div class="left">
+                  <a href="details.html?id={{work.id}}" target="_blank"><img title="{{work.title}}" src="{{work.coverUrl}}"></a>
+                </div>
+                <div class="right">
+                  <div class="title">
+                    <a style="font-size: 18px;" href="details.html?id={{work.id}}" target="_blank">{{work.title}}</a>
+                  </div>
+                  <div class="brief">
+                    <span title="{{work.brief}}">{{work.brief}}</span>
+                  </div>
+                  <div class="user-bar">
+                    <div class="time">
+                      <span>创建于：{{work.createTime}}</span>
+                    </div>
+                    <div>
+                      <span ng-click="like(work, user)" class="glyphicon glyphicon-thumbs-up like{{work.id}}" aria-hidden="true"></span>
+                      &nbsp;&nbsp;<span>{{work.likeCount}}</span>&nbsp;&nbsp;
+                      <label>|</label>&nbsp;&nbsp;
+                      <span ng-click="collect(work, user)" class="glyphicon glyphicon-heart-empty collect{{work.id}}" aria-hidden="true"></span>
+                      &nbsp;&nbsp;<span>{{work.collectCount}}</span>
+                    </div>
+                    <div class="collect-message2 success{{work.id}}">
+                      <span>收藏成功</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--home6-->
+          <div style="margin: 0" role="tabpanel" class="tab-pane row" id="home16">
+            <div class="data">
+              <div ng-mouseover="show()" class="work" ng-repeat="work in categoryWorks">
+                <div class="left">
+                  <a href="details.html?id={{work.id}}" target="_blank"><img title="{{work.title}}" src="{{work.coverUrl}}"></a>
+                </div>
+                <div class="right">
+                  <div class="title">
+                    <a style="font-size: 18px;" href="details.html?id={{work.id}}" target="_blank">{{work.title}}</a>
+                  </div>
+                  <div class="brief">
+                    <span title="{{work.brief}}">{{work.brief}}</span>
+                  </div>
+                  <div class="user-bar">
+                    <div class="time">
+                      <span>创建于：{{work.createTime}}</span>
+                    </div>
+                    <div>
+                      <span ng-click="like(work, user)" class="glyphicon glyphicon-thumbs-up like{{work.id}}" aria-hidden="true"></span>
+                      &nbsp;&nbsp;<span>{{work.likeCount}}</span>&nbsp;&nbsp;
+                      <label>|</label>&nbsp;&nbsp;
+                      <span ng-click="collect(work, user)" class="glyphicon glyphicon-heart-empty collect{{work.id}}" aria-hidden="true"></span>
+                      &nbsp;&nbsp;<span>{{work.collectCount}}</span>
+                    </div>
+                    <div class="collect-message2 success{{work.id}}">
+                      <span>收藏成功</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!-- 导航栏和作品显示 end-->
+
+    <div ng-style="searchResult" class="search-data">
+      <!--我的搜索结果start-->
+      <div class="data">
+        <div class="notData" ng-if="mySearch == ''">
+          <span>暂无数据</span>
+        </div>
+        <div ng-mouseover="show()" class="work" ng-repeat="entity in mySearch">
+          <div class="left">
+            <a href="details.html?id={{entity.id}}" target="_blank"><img title="{{entity.title}}" src="{{entity.coverUrl}}"></a>
+          </div>
+          <div class="right">
+            <div class="title">
+              <a href="details.html?id={{entity.id}}" target="_blank"><h2 ng-bind-html="entity.title | trustHtml"></h2></a>
+            </div>
+            <div class="brief">
+              <span title="{{entity.brief}}" ng-bind-html="entity.brief | trustHtml"></span>
+            </div>
+            <div class="user-bar">
+              <div class="time">
+                <span>创建于：{{entity.createTime}}</span>
+              </div>
+              <div>
+                <a target="_blank" href="details.html?id={{entity.id}}">详情</a>&nbsp;
+<!--                <a ng-click="showOuter(entity.id)">删除</a>-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--我的搜索结果end-->
+    </div>
+  </div>
+  <!-- 主体end -->
+
+  <script src="js/jquery.min.js"></script>
+  <script src="angularjs/angular.min.js"></script>
+  <script src="js/base/base.js"></script>
+  <script src="js/service/indexService.js"></script>
+  <script src="js/controller/indexController.js"></script>
+  <!--calendar-->
+  <script type="text/javascript" src="calendar/javascripts/simple-calendar.js"></script>
+  <script>
+      var myCalendar = new SimpleCalendar('#calendar');
+  </script>
+  </div>
+</body>
+</html>

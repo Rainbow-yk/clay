@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.store-show {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 930px;
+  overflow: scroll;
+}
+
+.price-info {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 930px;
+}
+
+.price-info h1 {
+  color: red;
+  text-align: center;
+}
+
+.price-info h1 span {
+  font-size: 20px;
+}
+
+.price-info h3 {
+  text-align: center;
+}
+
+.details {
+  position: absolute;
+  top: 160px;
+  right: 20%;
+  width: 60%;
+  height: 500px;
+  border: 1px solid gainsboro;
+  border-radius: 10px;
+}
+
+.details .content {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  border: 1px solid gainsboro;
+}
+
+.details .content button {
+  margin: 20px 30px 20px 30px;
+}

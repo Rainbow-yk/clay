@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="ng_user_web:Web exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/ng_user_web_Web_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="ng_user_web/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="ng_user_web" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

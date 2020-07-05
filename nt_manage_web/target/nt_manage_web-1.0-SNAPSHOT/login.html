@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>粘土网后台登录界面</title>
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+  <div class="warp">
+    <div class="background-top">
+    </div>
+    <h4 class="headline">粘土爱好者网站后台登录</h4>
+    <h3 class="spelling">NIAN TU AI HAO ZHE WANG ZHAN HOU TAI DENG LU</h3>
+    <!-- main start -->
+    <div class="main">
+      <!-- main left start -->
+      <div class="main-left">
+        <img class="logo" src="images/logo.png" />
+      </div>
+      <!-- main left end -->
+      <!-- main right start -->
+      <div class="main-right">
+        <div class="login-box">
+          <form id="loginForm" class="login" action="/login" method="post">
+            <img class="icon-user" src="images/user.png" />
+            <input name="username" type="text" placeholder="用户名" maxlength="16" autocomplete="off" />
+            <img class="icon-lock" src="images/password.png" />
+            <input name="password" type="password" placeholder="密码" maxlength="16" />
+            <button onclick="document:loginForm.submit()">登录</button>
+          </form>
+        </div>
+      </div>
+      <!-- main right end -->
+    </div>
+    <!-- main end -->
+    <div class="background-bottom"></div>
+    <span class="footer">@AUTHOR BY KEVIN YUAN 2020</span>
+  </div>
+</body>
+</html>

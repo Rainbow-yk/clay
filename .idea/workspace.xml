@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b6acff51-c8f4-47ba-98d8-9d44da1b869c" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="Interface" />
+        <option value="xml" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
+        <option name="userSettingsFile" value="E:\maven\maven\apache-maven-3.3.9\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1T62Pwb1nGBdNKJWNLinlYipO32" />
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.22643678" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\IDEA-workspace\nt_parent\nt_user_web\src\main\webapp\images" />
+      <recent name="E:\IDEA-workspace\nt_parent\nt_user_web\src\main\webapp\hover" />
+      <recent name="E:\IDEA-workspace\nt_parent\nt_user_web\src\main\webapp\calendar" />
+      <recent name="E:\IDEA-workspace\nt_parent\nt_user_web\src\main\webapp\images\img" />
+      <recent name="E:\IDEA-workspace\nt_parent\nt_manage_web\src\main\resources\spring" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.nt.user.controller" />
+      <recent name="com.nt.user.service" />
+      <recent name="com.nt.manage.service" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\IDEA-workspace\nt_parent\nt_manage_web\src\main\webapp\images" />
+      <recent name="E:\IDEA-workspace\nt_parent\nt_manage_web\src\main\webapp\html" />
+      <recent name="E:\IDEA-workspace\nt_parent\nt_dao\src\main\resources\com\nt\mapper" />
+      <recent name="E:\IDEA-workspace\nt_parent\nt_user_web\src\main\webapp\bootstrap" />
+      <recent name="E:\IDEA-workspace\nt_parent\nt_dao\src\main\resources\properties" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.SolrTest.importAllData">
+    <configuration name="MyTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MyTest" />
+      <module name="nt_user_service" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Deploy to Host" type="DEPLOY_HOST_RUN_CONFIGURATION" factoryName="Deploy to Host">
+      <option name="address" value="39.108.109.157" />
+      <option name="afterCommand" value="" />
+      <option name="alreadyReset" value="true" />
+      <option name="autoOpen" value="false" />
+      <option name="beforeCommand" value="" />
+      <option name="defaultTabIdx" value="0" />
+      <option name="ecsInstance">
+        <EcsInstance>
+          <option name="OSType" />
+          <option name="instanceId" />
+          <option name="instanceName" />
+          <option name="netType" />
+          <option name="privateIps" />
+          <option name="publicIps" />
+          <option name="regionId" />
+          <option name="tags" />
+        </EcsInstance>
+      </option>
+      <option name="hostTagId" value="0" />
+      <option name="location" value="/root/apache-tomcat-service/webapps" />
+      <option name="pathOrUrl" value="E:\IDEA-workspace\nt_parent\nt_user_service\target\nt_user_service-1.0-SNAPSHOT.war" />
+      <option name="tagId" value="0" />
+      <option name="terminalCommand" />
+      <option name="type" value="HOST" />
+      <option name="uploadType" value="MAVEN" />
+      <method v="2">
+        <option name="Maven.BeforeRunTask" enabled="true" file="$PROJECT_DIR$/pom.xml" goal="clean install" />
+        <option name="Maven.BeforeRunTask" enabled="true" file="E:\IDEA-workspace\nt_parent\nt_user_service/pom.xml" goal="clean install" />
+      </method>
+    </configuration>
+    <configuration name="SolrTest.delete (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="nt_solr_util" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.solr.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.solr" />
+      <option name="MAIN_CLASS_NAME" value="com.solr.SolrTest" />
+      <option name="METHOD_NAME" value="delete" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SolrTest.delete" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="nt_solr_util" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.test" />
+      <option name="MAIN_CLASS_NAME" value="com.test.SolrTest" />
+      <option name="METHOD_NAME" value="delete" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SolrTest.importAllData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="nt_solr_util" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.solr.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.solr" />
+      <option name="MAIN_CLASS_NAME" value="com.solr.SolrTest" />
+      <option name="METHOD_NAME" value="importAllData" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SolrTest.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="nt_solr_util" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.test" />
+      <option name="MAIN_CLASS_NAME" value="com.test.SolrTest" />
+      <option name="METHOD_NAME" value="test1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.SolrTest.importAllData" />
+        <item itemvalue="JUnit.SolrTest.delete (1)" />
+        <item itemvalue="JUnit.SolrTest.delete" />
+        <item itemvalue="JUnit.SolrTest.test1" />
+        <item itemvalue="Application.MyTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SshConsoleOptionsProvider">
+    <option name="myEncoding" value="UTF-8" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b6acff51-c8f4-47ba-98d8-9d44da1b869c" name="Default Changelist" comment="" />
+      <created>1572766203534</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1572766203534</updated>
+      <workItem from="1572766207147" duration="5338000" />
+      <workItem from="1572931293941" duration="2248000" />
+      <workItem from="1573131619130" duration="4091000" />
+      <workItem from="1573193443492" duration="16743000" />
+      <workItem from="1573303519980" duration="1584000" />
+      <workItem from="1573305878894" duration="7157000" />
+      <workItem from="1573372809401" duration="7472000" />
+      <workItem from="1573531257929" duration="20920000" />
+      <workItem from="1573621337168" duration="28969000" />
+      <workItem from="1573702886891" duration="19188000" />
+      <workItem from="1573723668813" duration="6595000" />
+      <workItem from="1574051100230" duration="30619000" />
+      <workItem from="1574140985983" duration="28098000" />
+      <workItem from="1574402068129" duration="5866000" />
+      <workItem from="1574760624830" duration="6509000" />
+      <workItem from="1574846435515" duration="15885000" />
+      <workItem from="1574928284851" duration="10722000" />
+      <workItem from="1574949589370" duration="2606000" />
+      <workItem from="1577373992386" duration="1352000" />
+      <workItem from="1579857903487" duration="37000" />
+      <workItem from="1579863653755" duration="1834000" />
+      <workItem from="1579937924388" duration="72000" />
+      <workItem from="1580275271848" duration="5956000" />
+      <workItem from="1580373502978" duration="732000" />
+      <workItem from="1580384217653" duration="2948000" />
+      <workItem from="1580454678551" duration="7851000" />
+      <workItem from="1580797541034" duration="3133000" />
+      <workItem from="1580882981079" duration="4918000" />
+      <workItem from="1580965700140" duration="17656000" />
+      <workItem from="1581054314762" duration="14686000" />
+      <workItem from="1581142733086" duration="17070000" />
+      <workItem from="1581225323834" duration="18476000" />
+      <workItem from="1581315149698" duration="22063000" />
+      <workItem from="1581400310828" duration="4856000" />
+      <workItem from="1581486909045" duration="15162000" />
+      <workItem from="1581571757358" duration="23592000" />
+      <workItem from="1581653595214" duration="18728000" />
+      <workItem from="1581746006503" duration="15829000" />
+      <workItem from="1581831599238" duration="22320000" />
+      <workItem from="1581916715564" duration="61000" />
+      <workItem from="1581916838108" duration="380000" />
+      <workItem from="1581917248850" duration="5000" />
+      <workItem from="1581917284407" duration="21937000" />
+      <workItem from="1582002069471" duration="26585000" />
+      <workItem from="1582085733982" duration="6014000" />
+      <workItem from="1582117533182" duration="7215000" />
+      <workItem from="1582178124127" duration="17472000" />
+      <workItem from="1582264281215" duration="13959000" />
+      <workItem from="1582431172262" duration="17319000" />
+      <workItem from="1582523252555" duration="12653000" />
+      <workItem from="1582543367561" duration="5829000" />
+      <workItem from="1582602869333" duration="21090000" />
+      <workItem from="1582696765833" duration="17349000" />
+      <workItem from="1582781263829" duration="27658000" />
+      <workItem from="1582872638160" duration="23788000" />
+      <workItem from="1582949010013" duration="22862000" />
+      <workItem from="1583048119035" duration="24821000" />
+      <workItem from="1583126526820" duration="22420000" />
+      <workItem from="1583214414699" duration="13027000" />
+      <workItem from="1583298646263" duration="28370000" />
+      <workItem from="1583384323059" duration="21991000" />
+      <workItem from="1583558333908" duration="9488000" />
+      <workItem from="1583575160613" duration="1167000" />
+      <workItem from="1583579967773" duration="5451000" />
+      <workItem from="1583730436663" duration="1461000" />
+      <workItem from="1584076662953" duration="8316000" />
+      <workItem from="1584103217718" duration="293000" />
+      <workItem from="1584168711636" duration="5157000" />
+      <workItem from="1584253002614" duration="5074000" />
+      <workItem from="1584273163160" duration="2880000" />
+      <workItem from="1584948606619" duration="1660000" />
+      <workItem from="1585538543676" duration="11731000" />
+      <workItem from="1585630196358" duration="2929000" />
+      <workItem from="1585712551527" duration="7165000" />
+      <workItem from="1585802000000" duration="23491000" />
+      <workItem from="1586233695399" duration="2352000" />
+      <workItem from="1586489726391" duration="794000" />
+      <workItem from="1587877415559" duration="4719000" />
+      <workItem from="1587969682857" duration="16810000" />
+      <workItem from="1588381731773" duration="4155000" />
+      <workItem from="1588659855257" duration="7055000" />
+      <workItem from="1588744796732" duration="7246000" />
+      <workItem from="1588807966951" duration="3492000" />
+      <workItem from="1588918701770" duration="70000" />
+      <workItem from="1589112565335" duration="2304000" />
+      <workItem from="1589772191240" duration="473000" />
+      <workItem from="1589949720947" duration="4092000" />
+      <workItem from="1590048291834" duration="2184000" />
+      <workItem from="1590206723444" duration="1025000" />
+      <workItem from="1590215756217" duration="1190000" />
+      <workItem from="1590315468201" duration="1860000" />
+      <workItem from="1593053751239" duration="644000" />
+      <workItem from="1593332338016" duration="869000" />
+      <workItem from="1593435912235" duration="559000" />
+      <workItem from="1593438307194" duration="811000" />
+      <workItem from="1593440509141" duration="2316000" />
+      <workItem from="1593742023304" duration="2673000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+</project>

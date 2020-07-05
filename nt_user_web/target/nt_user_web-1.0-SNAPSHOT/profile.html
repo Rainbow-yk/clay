@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>个人资料</title>
+  <link rel="stylesheet" href="css/profile.css" />
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+</head>
+<body ng-app="nt" ng-controller="profileController" ng-init="init()">
+  <div class="wrapper">
+    <div class="top">
+      <h3>粘土爱好者网站</h3>
+    </div>
+    <div class="content">
+      <div class="header">
+        <div class="user-avatar">
+          <figure class="center-block img-responsive">
+            <img class="img-circle img-thumbnail" src="{{user.avatarUrl}}" alt="头像">
+          </figure>
+          <input id="upload" type="file" style="display: none"/>
+          <span ng-click="upload(user.mobile)">更换头像</span>
+        </div>
+        <div class="user-info">
+          <div class="nickname">
+            <span>昵称:</span>&nbsp;
+            <span>{{user.nickname}}</span>
+          </div>
+          <div class="mobile">
+            <span>作品&nbsp;{{myWorks.length}}</span>
+            <span style="color: #ccc;">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+            <span>手机号&nbsp;{{user.mobile}}</span>
+          </div>
+          <span style="opacity: 0.3" ng-if="user.brief == ''">暂无简介</span>
+          <span style="opacity: 0.3">{{user.brief}}</span>
+<!--          <span class="back"><a class="a" href="index.html">回到主页&nbsp;></a></span>-->
+          <div ng-style="up" class="switch" ng-click="showDetailsInfo()">
+            <span>我的资料</span>
+            <span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span>
+          </div>
+          <div ng-style="down" class="switch" ng-click="hiddenDetailsInfo()">
+            <span>我的资料</span>
+            <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
+          </div>
+        </div>
+        <div ng-style="down" class="details-info">
+          <div class="input">
+            <span>昵称<font>*</font>：</span>
+            <input maxlength="16" ng-model="user.nickname" type="text" class="form-control" placeholder="nickname">
+          </div>
+          <div class="input">
+            <span>手机号<font>*</font>：</span>
+            <input disabled maxlength="11" ng-model="user.mobile" type="text" class="form-control" placeholder="mobile">
+          </div>
+          <div class="input">
+            <span>性别：</span>
+            <select ng-model="user.sex" class="form-control">
+              <option>男</option>
+              <option>女</option>
+            </select>
+          </div>
+          <div class="input">
+            <span>简介：</span>
+            <textarea ng-model="user.brief" maxlength="100" class="form-control"></textarea>
+          </div>
+          <div class="input">
+            <span></span>
+            <button class="btn btn-success" ng-click="updateUserInfo()">确定修改</button>
+          </div>
+        </div>
+      </div>
+      <div ng-style="main" class="main">
+        <div class="menu">
+          <ul>
+            <li class="my-work"><a class="none" href="profile.html">我的作品</a></li>
+            <li class="my-collect"><a class="none" href="collect.html">我的收藏</a></li>
+          </ul>
+        </div>
+        <!--我的作品start-->
+        <div class="data">
+          <div class="notData" ng-if="myWorks == ''">
+            <span>亲亲还没有作品哦，<a href="upload.html">快去发布新作品吧！</a></span>
+          </div>
+          <div ng-mouseover="show()" class="work" ng-repeat="work in myWorks">
+            <div class="left">
+              <a target="_blank" href="details.html?id={{work.id}}"><img title="{{work.title}}" src="{{work.coverUrl}}"></a>
+            </div>
+            <div class="right">
+              <div class="title">
+                <a target="_blank" href="details.html?id={{work.id}}"><h2>{{work.title}}</h2></a>
+              </div>
+              <div class="brief">
+                <span title="{{work.brief}}">{{work.brief}}</span>
+              </div>
+              <div class="user-bar">
+                <div class="time">
+                  <span>{{work.createTime}}</span>
+                </div>
+                <div>
+<!--                  <a href="details.html?id={{work.id}}">详情</a>&nbsp;-->
+                  <a href="update.html?id={{work.id}}">修改</a>
+                  <a ng-click="showOuter(work.id)">删除</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--我的作品end-->
+      </div>
+    </div>
+    <!--模态框start-->
+    <div id="outer">
+      <div tabindex="-1" class="model">
+        <div class="tip-message">
+          <span>确定删除你选择的作品吗？</span>
+        </div>
+        <div class="buttons">
+          <button id="confirm" class="btn btn-success">确定</button>
+          <button class="btn btn-success" ng-click="cancel()">取消</button>
+        </div>
+      </div>
+    </div>
+    <!--模态框end-->
+  </div>
+
+  <script src="angularjs/angular.min.js"></script>
+  <script src="js/base/base.js"></script>
+  <script src="js/service/profileService.js"></script>
+  <script src="js/controller/profileController.js"></script>
+</body>
+</html>

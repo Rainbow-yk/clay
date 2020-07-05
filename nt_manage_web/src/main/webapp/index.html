@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>后台首页</title>
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="angularjs/pagination.css" />
+</head>
+<body ng-app="nt" ng-controller="indexController">
+  <div class="wrapper">
+    <div class="header">
+      <span>粘土后台管理系统</span>
+      <a href="/logout">退出</a>
+    </div>
+    <div class="main">
+      <div class="main-left">
+        <ol>
+          <li class="user-management"><a href="index.html">用户管理</a></li>
+          <li class="work-management"><a href="work.html">作品与资讯管理</a></li>
+          <li class="slider-management"><a href="slideshow.html">轮播图管理</a></li>
+        </ol>
+      </div>
+      <div class="main-right">
+        <div class="option">
+          <span>用户管理</span>
+        </div>
+        <div class="content">
+          <div class="content-table">
+            <div class="top">
+              <span>昵称:</span>
+              <input ng-model="keyword" type="text" class="form-control" name="keyword" />
+              <button class="btn btn-primary search" ng-click="reloadList()">查询</button>
+              <button class="btn btn-danger delete" ng-click="deleteUser()">删除</button>
+            </div>
+
+            <div class="data">
+              <div class="title">
+                <ul class="data-ul">
+                  <li class="id">ID</li>
+                  <li class="nickname">昵称</li>
+                  <li class="mobile">手机号</li>
+                  <li class="sex">性别</li>
+                  <li class="brief">简介</li>
+                  <li class="update-time">更新时间</li>
+                  <li class="create-time">创建时间</li>
+                  <li class="check"><input id="checkAll" type="checkbox" ng-click="checkAll()" /></li>
+                </ul>
+              </div>
+
+              <div class="user-data" ng-repeat="entity in list">
+                <ul class="data-ul">
+                  <li class="id">{{entity.id}}</li>
+                  <li class="nickname">{{entity.nickname}}</li>
+                  <li class="mobile">{{entity.mobile}}</li>
+                  <li class="sex" ng-if="entity.sex == null || entity.sex == ''">无</li>
+                  <li class="sex" ng-if="entity.sex != null">{{entity.sex}}</li>
+                  <li class="brief" ng-if="entity.brief == null || entity.brief == ''">无</li>
+                  <li class="brief" ng-if="entity.brief != null" title="{{entity.brief}}">{{entity.brief}}</li>
+                  <li class="update-time">{{entity.updateTime}}</li>
+                  <li class="create-time">{{entity.createTime}}</li>
+                  <li class="check"><input value="{{entity.id}}" class="checkOne" type="checkbox" ng-click="radio()" /></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="footer">
+              <!-- 分页 -->
+              <tm-pagination conf="paginationConf"></tm-pagination>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/jquery.min.js"></script>
+  <script src="angularjs/angular.min.js"></script>
+  <script src="angularjs/pagination.js"></script>
+  <script src="js/base/base.js"></script>
+  <script src="js/service/indexService.js"></script>
+  <script src="js/controller/indexController.js"></script>
+</body>
+</html>

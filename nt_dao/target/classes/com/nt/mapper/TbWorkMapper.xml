@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.nt.mapper.TbWorkMapper">
+
+    <!--添加作品-->
+    <insert id="save" parameterType="com.nt.pojo.TbWorkInfo" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+        INSERT INTO tb_work_info VALUES (NULL, #{title}, #{content}, #{brief}, #{collectCount}, #{likeCount}, #{authorId}, #{coverUrl}, NOW(), NOW(), #{isDelete})
+    </insert>
+
+    <!--查询所有的作品-->
+    <select id="getAll" resultType="com.nt.pojo.TbWorkInfo">
+        SELECT * FROM tb_work_info
+        <where>
+            is_delete = FALSE ORDER BY create_time DESC
+        </where>
+    </select>
+
+    <!--查询自己的所有作品通过用户id-->
+    <select id="getMyWorks" resultType="com.nt.pojo.TbWorkInfo">
+        SELECT * FROM tb_work_info
+        <where>
+            author_id = #{id} AND is_delete = FALSE
+        </where>
+    </select>
+    
+    <resultMap id="userAndWork" type="com.nt.pojo.TbUser">
+        <id column="uid" property="id"></id>
+        <result column="nickname" property="nickname"></result>
+        <result column="mobile" property="mobile"></result>
+        <result column="password" property="password"></result>
+        <result column="avatarUrl" property="avatarUrl"></result>
+        <result column="brief" property="brief"></result>
+        <result column="updateTime" property="updateTime"></result>
+        <result column="createTime" property="createTime"></result>
+        <result column="udel" property="isDelete"></result>
+
+        <association property="workInfo" javaType="com.nt.pojo.TbWorkInfo">
+            <id column="wid" property="id"></id>
+            <result column="title" property="title"></result>
+            <result column="brief" property="brief"></result>
+            <result column="content" property="content"></result>
+            <result column="collectCount" property="collectCount"></result>
+            <result column="likeCount" property="likeCount"></result>
+            <result column="wct" property="createTime"></result>
+            <result column="updateTime" property="updateTime"></result>
+            <result column="coverUrl" property="coverUrl"></result>
+            <result column="authorId" property="authorId"></result>
+            <result column="wdel" property="isDelete"></result>
+            <result column="title" property="title"></result>
+        </association>
+    </resultMap>
+    <!--查询用户和作品的信息-->
+    <select id="findUserAndWork" resultMap="userAndWork">
+        SELECT work.id as wid, work.title, work.content, work.collect_count, work.like_count ,work.create_time as wct,user.id as uid, user.nickname, user.avatar_url
+        FROM tb_work_info as work, tb_user as user
+        <where>
+            work.author_id = user.id AND work.id = #{id} AND work.is_delete = FALSE AND user.is_delete = FALSE
+        </where>
+    </select>
+
+    <update id="delete">
+        UPDATE tb_work_info SET is_delete = TRUE
+        <where>
+            id = #{id}
+        </where>
+    </update>
+
+    <!--收藏作品-->
+    <insert id="collect">
+        INSERT INTO tb_collect VALUES (NULL, #{0}, #{1})
+    </insert>
+
+    <!--获取自己的收藏作品通过用户id-->
+    <select id="getMyCollect" resultType="com.nt.pojo.TbWorkInfo">
+        SELECT * FROM tb_work_info
+        <where>
+            id in (SELECT w_id FROM tb_collect WHERE u_id = #{id}) AND is_delete = FALSE
+        </where>
+    </select>
+
+    <update id="update" parameterType="com.nt.pojo.TbWorkInfo">
+        UPDATE tb_work_info SET title = #{title}, content = #{content}, brief = #{brief},
+        collect_count = #{collectCount}, like_count = #{likeCount}, author_id = #{authorId},
+        cover_url = #{coverUrl}, create_time = #{createTime}, update_time = NOW(), is_delete = #{isDelete}
+        <where>
+            id = #{id}
+        </where>
+    </update>
+
+    <delete id="deleteCollect">
+        DELETE FROM tb_collect
+        <where>
+            u_id = #{1} AND w_id = #{0}
+        </where>
+    </delete>
+
+    <!--通过作品id查询作品信息-->
+    <select id="findOneById" resultType="com.nt.pojo.TbWorkInfo">
+        SELECT * FROM tb_work_info
+        <where>
+            id = #{id} AND is_delete = FALSE
+        </where>
+    </select>
+
+    <select id="findWorkByCategoryId" resultType="com.nt.pojo.TbWorkInfo">
+        SELECT * FROM tb_work_info
+        <where>
+            id in (SELECT work_id FROM tb_work_category WHERE category_id = #{id}) AND is_delete = FALSE ORDER BY create_time DESC
+        </where>
+    </select>
+
+</mapper>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.nt.mapper.TbCategoryMapper">
+
+    <select id="getAll" resultType="map">
+        SELECT id, category_name as text FROM tb_category
+    </select>
+
+    <insert id="saveCategoryAndWork">
+        INSERT INTO tb_work_category VALUES (NULL ,#{1}, #{0})
+    </insert>
+
+    <select id="findCategoryByWorkId" resultType="map">
+        SELECT id, category_name as text FROM tb_category
+        <where>
+            id in (SELECT category_id FROM tb_work_category where work_id = #{id})
+        </where>
+    </select>
+
+    <delete id="deleteByWorkId">
+        DELETE FROM tb_work_category
+        <where>
+            work_id = #{id}
+        </where>
+    </delete>
+
+</mapper>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="nt_manage_web" />
+        <module name="nt_utils" />
+        <module name="nt_user_interface" />
+        <module name="nt_solr_util" />
+        <module name="nt_pojo" />
+        <module name="nt_dao" />
+        <module name="nt_user_web" />
+        <module name="nt_user_service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ng_user_web" target="1.8" />
+      <module name="nt_manage_interface" target="1.8" />
+      <module name="nt_manage_service" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

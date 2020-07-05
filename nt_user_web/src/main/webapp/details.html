@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/details.css">
+  <title>作品详情</title>
+</head>
+<body ng-app="nt" ng-controller="detailsController" ng-init="getInfo()">
+  <div class="wrapper">
+    <div class="top">
+      <h3>粘土爱好者网站</h3>
+    </div>
+    <div class="content">
+      <div class="header">
+        <div>
+          <h1>{{info.workInfo.title}}</h1>
+        </div>
+        <div class="some-info">
+          <span class="nickname">{{info.nickname}}</span>&nbsp;&nbsp;
+          <span>发布于&nbsp;&nbsp;{{info.workInfo.createTime}}</span>
+        </div>
+      </div>
+      <div id="main" class="main">
+
+      </div>
+    </div>
+  </div>
+
+  <script src="angularjs/angular.min.js"></script>
+  <script src="js/base/base.js"></script>
+  <script src="js/service/detailsService.js"></script>
+  <script src="js/controller/detailsController.js"></script>
+</body>
+</html>
